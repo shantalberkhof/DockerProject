@@ -95,6 +95,7 @@ class ObjectDetectionBot(Bot):
 
             # Upload the object to S3
             s3.upload_file(local_file_path, bucket_name, object_key)
+            logger.info(f'prediction: {file_name}. was upload to s3 successfully')
 
             # TODO send an HTTP request to the `yolo5` service for prediction
             """ THIS IS THE OLD VERSION
@@ -111,12 +112,15 @@ class ObjectDetectionBot(Bot):
             detection_results = response.json()
             """
 
-            url = "http://host.docker.internal:8081/predict?imgName=" + object_key
-            response = requests.post(url)
+            yolo5_base_url = f"http://yolo5:8081/predict"
+            yolo5_url = f"{yolo5_base_url}?imgName={object_key}"
+            logger.info(f'Calling the yolo service')
+            response = requests.post(yolo5_url)
 
             #json_data = response.json()
             # TODO send the returned results to the Telegram end-user
             # turn response.text into something normal - Not required.
+            # A change
             #json_data = response.json()
             #data = json_data
             #object_counts = {}

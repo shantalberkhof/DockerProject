@@ -6,7 +6,7 @@ services:
     container_name: mongo1
     command: ["--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27017"]
     ports:
-      - 27017:27017
+      - "27017:27017"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
@@ -26,7 +26,7 @@ services:
     container_name: mongo2
     command: ["--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27018"]
     ports:
-      - 27018:27018
+      - "27018:27018"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
@@ -39,7 +39,7 @@ services:
     container_name: mongo3
     command: ["--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27019"]
     ports:
-      - 27019:27019
+      - "27019:27019"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
@@ -56,8 +56,7 @@ services:
       - mongoCluster
     volumes:
       - $HOME/.aws:/root/.aws
-    extra_hosts:
-      - "host.docker.internal:172.17.0.1"
+
 
   polybot:
     image: ${POLYBOT_IMG_NAME}
@@ -71,8 +70,6 @@ services:
       - mongoCluster
     volumes:
       - $HOME/.aws:/root/.aws
-    extra_hosts:
-      - "host.docker.internal:172.17.0.1"
     depends_on:
       - yolo5
 
