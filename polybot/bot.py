@@ -120,7 +120,7 @@ class ObjectDetectionBot(Bot):
             #json_data = response.json()
             # TODO send the returned results to the Telegram end-user
             # turn response.text into something normal - Not required.
-            # A change
+            # A change 2
             #json_data = response.json()
             #data = json_data
             #object_counts = {}
