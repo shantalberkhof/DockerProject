@@ -95,6 +95,7 @@ jobs:
             POLYBOT_IMG_NAME=shantalberkhof/polybot:${{ github.run_number }}
             YOLO5_IMG_NAME=shantalberkhof/yolo5:${{ github.run_number }}
             TELEGRAM_APP_URL=$NGROK_DOMAIN
+            TELEGRAM_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
             """ > .env
             
             # Take the service down
