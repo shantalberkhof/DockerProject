@@ -1,11 +1,11 @@
 import telebot
-from loguru import logger
+# from loguru import logger
 import os
 import time
 from telebot.types import InputFile
 
-#import yolo5.app
-#from polybot.img_proc import Img
+# import yolo5.app
+# from polybot.img_proc import Img
 import requests
 import boto3
 from loguru import logger
