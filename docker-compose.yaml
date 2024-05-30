@@ -4,7 +4,7 @@ services:
   mongo1:
     image: mongo:5
     container_name: mongo1
-    command: ["--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27017"]
+    command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27017"]
     ports:
       - "27017:27017"
     extra_hosts:
@@ -24,7 +24,7 @@ services:
   mongo2:
     image: mongo:5
     container_name: mongo2
-    command: ["--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27018"]
+    command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27018"]
     ports:
       - "27018:27018"
     extra_hosts:
@@ -37,7 +37,7 @@ services:
   mongo3:
     image: mongo:5
     container_name: mongo3
-    command: ["--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27019"]
+    command: ["mongod", "--replSet", "myReplicaSet", "--bind_ip_all", "--port", "27019"]
     ports:
       - "27019:27019"
     extra_hosts:
